@@ -841,7 +841,78 @@ function Footer() {
 
 }
 
+function Preloader({ onDone }) {
+  const [progress, setProgress] = React.useState(0);
+  const [displayPct, setDisplayPct] = React.useState(0);
+  const [exiting, setExiting] = React.useState(false);
+
+  React.useEffect(() => {
+    if (displayPct < progress) {
+      const t = setTimeout(() => setDisplayPct(p => Math.min(p + 1, progress)), 18);
+      return () => clearTimeout(t);
+    }
+  }, [displayPct, progress]);
+
+  React.useEffect(() => {
+    const imgs = [
+      '/assets/brand/logo.png',
+      '/assets/sobre-la-marca.png',
+      '/assets/gigantes-que-mueven-el-aire.png',
+      ...PRODUCTS.slice(0, 4).filter(p => p.images?.[0]).map(p => p.images[0]),
+    ];
+    const total = imgs.length + 1;
+    let loaded = 0;
+    const t0 = Date.now();
+    const MIN = 1800;
+    const finish = () => {
+      const wait = Math.max(0, MIN - (Date.now() - t0));
+      setTimeout(() => { setExiting(true); setTimeout(onDone, 700); }, wait);
+    };
+    const tick = () => { loaded++; setProgress(Math.round(loaded / total * 100)); if (loaded >= total) finish(); };
+    imgs.forEach(src => { const img = new Image(); img.onload = img.onerror = tick; img.src = src; });
+    const vid = document.createElement('video'); vid.muted = true; vid.preload = 'auto';
+    vid.oncanplay = vid.onerror = tick; vid.src = '/assets/VHERO.mp4'; vid.load();
+    const fb = setTimeout(() => { setExiting(true); setTimeout(onDone, 700); }, 8000);
+    return () => clearTimeout(fb);
+  }, []);
+
+  const R = 52, C = +(2 * Math.PI * R).toFixed(3);
+  const dash = +(C - C * displayPct / 100).toFixed(3);
+
+  return (
+    <div className={`sc-preloader${exiting ? ' sc-preloader--out' : ''}`}>
+      <div className="sc-preloader-glow" />
+      <div className="sc-preloader-content">
+        <img src="/assets/brand/logo.png" className="sc-preloader-logo" alt="SMARTERCOOL" />
+        <div className="sc-preloader-ring">
+          <svg viewBox="0 0 128 128" width="128" height="128" aria-hidden="true">
+            <defs>
+              <linearGradient id="sc-pg" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#567C8D" />
+                <stop offset="100%" stopColor="#C8D9E6" />
+              </linearGradient>
+            </defs>
+            <circle cx="64" cy="64" r={R} fill="none" stroke="rgba(200,217,230,0.08)" strokeWidth="2" />
+            {[...Array(36)].map((_, i) => {
+              const a = (i * 10 - 90) * (Math.PI / 180);
+              return <line key={i} x1={64 + (R - 6) * Math.cos(a)} y1={64 + (R - 6) * Math.sin(a)} x2={64 + (R + 1) * Math.cos(a)} y2={64 + (R + 1) * Math.sin(a)} stroke="rgba(200,217,230,0.1)" strokeWidth="1" />;
+            })}
+            <circle cx="64" cy="64" r={R} fill="none" stroke="url(#sc-pg)" strokeWidth="2.5"
+              strokeLinecap="round" strokeDasharray={C} strokeDashoffset={dash}
+              transform="rotate(-90 64 64)" style={{ transition: 'stroke-dashoffset .3s ease' }} />
+          </svg>
+          <span className="sc-preloader-pct">{displayPct}</span>
+        </div>
+        <p className="sc-preloader-label">Cargando experiencia</p>
+      </div>
+      <div className="sc-preloader-bar"><div className="sc-preloader-fill" style={{ width: `${displayPct}%` }} /></div>
+      <div className="sc-preloader-foot">[ SMARTERCOOL · SISTEMA · 2026 ]</div>
+    </div>
+  );
+}
+
 export default function App() {
+  const [preloaderDone, setPreloaderDone] = React.useState(false);
   const [openProduct, setOpenProduct] = React.useState(null);
   const [catalogFilter, setCatalogFilter] = React.useState("all");
   const [active, setActive] = React.useState("home");
@@ -891,6 +962,7 @@ export default function App() {
 
   return (
     <>
+      {!preloaderDone && <Preloader onDone={() => setPreloaderDone(true)} />}
       <Header onCTA={onCTA} active={active} onNav={onNav} />
       <Hero onCTA={onCTA} />
       <About />
