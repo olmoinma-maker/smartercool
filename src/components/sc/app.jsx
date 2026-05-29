@@ -858,7 +858,8 @@ function Preloader({ onDone }) {
       '/assets/brand/logo.png',
       '/assets/sobre-la-marca.png',
       '/assets/gigantes-que-mueven-el-aire.png',
-      ...PRODUCTS.slice(0, 4).filter(p => p.images?.[0]).map(p => p.images[0]),
+      ...CATEGORIES.map(c => c.image).filter(Boolean),
+      ...PRODUCTS.filter(p => p.images?.[0]).map(p => p.images[0]),
     ];
     const total = imgs.length + 1;
     let loaded = 0;
@@ -871,10 +872,11 @@ function Preloader({ onDone }) {
     const tick = () => { loaded++; setProgress(Math.round(loaded / total * 100)); if (loaded >= total) finish(); };
     imgs.forEach(src => { const img = new Image(); img.onload = img.onerror = tick; img.src = src; });
     const vid = document.createElement('video'); vid.muted = true; vid.preload = 'auto';
-    vid.oncanplay = vid.onerror = tick; vid.src = '/assets/VHERO.mp4'; vid.load();
-    const fb = setTimeout(() => { setExiting(true); setTimeout(onDone, 700); }, 8000);
+    vid.oncanplaythrough = vid.onerror = tick; vid.src = '/assets/VHERO.mp4'; vid.load();
+    const fb = setTimeout(() => { setExiting(true); setTimeout(onDone, 700); }, 12000);
     return () => clearTimeout(fb);
   }, []);
+
 
   const R = 52, C = +(2 * Math.PI * R).toFixed(3);
   const dash = +(C - C * displayPct / 100).toFixed(3);
