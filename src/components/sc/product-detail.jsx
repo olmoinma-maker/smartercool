@@ -98,27 +98,28 @@ export default function ProductDetail({ product, onClose, onOpen }) {
               }
             </div>
 
-            <div style={{ marginTop: 22 }}>
-              <div className="breadcrumb" style={{ marginBottom: 10 }}>Caracteristicas clave</div>
-              <div className="po-features">
-                {product.features.slice(0, 4).map((f, i) => {
-                  const I = Icon[f.i] || Icon.Bolt;
-                  return (
-                    <div className="po-feat" key={i}>
-                      <div className="ico"><I size={14} /></div>
-                      <div>{f.t}</div>
-                    </div>);
-
-                })}
+            <div className="po-left-lower">
+              <div style={{ marginTop: 22 }}>
+                <div className="breadcrumb" style={{ marginBottom: 10 }}>Caracteristicas clave</div>
+                <div className="po-features">
+                  {product.features.slice(0, 4).map((f, i) => {
+                    const I = Icon[f.i] || Icon.Bolt;
+                    return (
+                      <div className="po-feat" key={i}>
+                        <div className="ico"><I size={14} /></div>
+                        <div>{f.t}</div>
+                      </div>);
+                  })}
+                </div>
               </div>
-            </div>
 
-            <div className="po-cta">
-              <button className="btn btn-primary">
-                Solicitar cotización
-                <span className="arrow"><Icon.ArrowUR size={12} /></span>
-              </button>
-              <button className="btn-icon" title="WhatsApp"><Icon.Whatsapp size={16} /></button>
+              <div className="po-cta">
+                <button className="btn btn-primary">
+                  Solicitar cotización
+                  <span className="arrow"><Icon.ArrowUR size={12} /></span>
+                </button>
+                <button className="btn-icon" title="WhatsApp"><Icon.Whatsapp size={16} /></button>
+              </div>
             </div>
           </div>
 
@@ -193,6 +194,73 @@ export default function ProductDetail({ product, onClose, onOpen }) {
                 )}
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* mobile gallery — hidden on desktop, shown at ≤1023px */}
+        <div className="po-gallery-mobile">
+          <div className="po-gallery-scroll">
+            {hasImages ?
+              images.map((src, i) => {
+                const isFicha = i === images.length - 1 && typeof src === "string" && src.includes("/ficha.");
+                return (
+                  <div
+                    key={i}
+                    className={`po-gallery-mobile-thumb${safeThumb === i ? " active" : ""}`}
+                    onClick={() => setThumb(i)}
+                    title={isFicha ? "Ficha técnica" : undefined}
+                  >
+                    <img src={src} alt={`${product.name} ${i + 1}`} />
+                    {isFicha && <span className="po-gallery-ficha-badge">Ficha</span>}
+                  </div>
+                );
+              }) :
+              [0, 1, 2].map((i) => (
+                <div
+                  key={i}
+                  className={`po-gallery-mobile-thumb${thumb === i ? " active" : ""}`}
+                  onClick={() => setThumb(i)}
+                  style={{ padding: 6 }}
+                >
+                  <Art tone="dark" blades={product.blades} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        {/* mobile-only: características clave + CTA */}
+        <div className="po-features-mobile glass">
+          <div className="breadcrumb" style={{ marginBottom: 10 }}>Caracteristicas clave</div>
+          <div className="po-features">
+            {product.features.slice(0, 4).map((f, i) => {
+              const I = Icon[f.i] || Icon.Bolt;
+              return (
+                <div className="po-feat" key={i}>
+                  <div className="ico"><I size={14} /></div>
+                  <div>{f.t}</div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="po-cta">
+            <button className="btn btn-primary">
+              Solicitar cotización <span className="arrow"><Icon.ArrowUR size={12} /></span>
+            </button>
+            <button className="btn-icon" title="WhatsApp"><Icon.Whatsapp size={16} /></button>
+          </div>
+        </div>
+
+        {/* mobile-only: especificaciones técnicas */}
+        <div className="po-specs-mobile glass specs-block">
+          <div className="h">Especificaciones técnicas</div>
+          <div className="specs-list">
+            {product.specs.map(([k, v], i) =>
+              <div className="row" key={i}>
+                <span className="k">{k}</span>
+                <span className="v">{v}</span>
+              </div>
+            )}
           </div>
         </div>
 

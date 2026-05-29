@@ -2176,6 +2176,53 @@ section.block.tight { padding: 80px var(--gutter); }
   color: var(--sky);
 }
 
+/* po-left-lower: transparent flex-passthrough on desktop, hidden on mobile */
+.po-left-lower { display: contents; }
+/* mobile-only product detail blocks: hidden on desktop */
+.po-features-mobile, .po-specs-mobile { display: none; }
+
+/* --- Mobile gallery (hidden on desktop) --- */
+.po-gallery-mobile {
+  display: none;
+  margin: 10px 0 0;
+}
+/* inner scroll row — keeps overflow-x away from the glass container so nothing clips */
+.po-gallery-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.po-gallery-scroll::-webkit-scrollbar { display: none; }
+.po-gallery-mobile-thumb {
+  flex-shrink: 0;
+  width: 58px; height: 58px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color .2s ease, box-shadow .2s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.po-gallery-mobile-thumb.active {
+  border-color: var(--sky);
+  box-shadow: 0 0 10px rgba(86,124,141,0.4);
+}
+.po-gallery-mobile-thumb img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  padding: 5px;
+}
+.po-gallery-ficha-badge {
+  position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%);
+  background: var(--sky); color: var(--navy);
+  font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.05em;
+  padding: 1px 4px; border-radius: 3px; white-space: nowrap;
+}
+
 /* ====== TABLET + MOBILE ≤1023px ====== */
 @media (max-width: 1023px) {
   .nav { display: none !important; }
@@ -2187,8 +2234,33 @@ section.block.tight { padding: 80px var(--gutter); }
   .hvls-cards { grid-template-columns: repeat(2, 1fr) !important; }
   .showcase-grid { grid-template-columns: 1fr !important; }
 
-  /* hero-right stacks fine at 1100px but hide it here for cleaner layout */
+  /* hide hero-right for cleaner layout */
   .hero-right { display: none; }
+
+  /* Po-topbar: prevent breadcrumb from wrapping and pushing close button off-screen */
+  .po-topbar .crumbs { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; margin-right: 12px; }
+  .po-topbar > div:last-child { flex-shrink: 0; }
+
+  /* Product detail: info on TOP, image below — one connected card, zero gap */
+  .po-main { display: flex !important; flex-direction: column !important; gap: 0 !important; }
+  /* po-left (info) — rounded top, compact padding & gaps */
+  .po-left { border-radius: 20px 20px 0 0 !important; border-bottom: none !important; padding: 14px 16px !important; gap: 6px !important; }
+  .po-left .num { font-size: 42px !important; margin: 0 !important; line-height: 1 !important; }
+  .po-left h2 { font-size: 22px !important; }
+  .po-left .nm-sub { margin-bottom: 2px !important; }
+  .po-left p { margin: 6px 0 0 !important; font-size: 13px !important; }
+  .po-left .po-thumbs { display: none !important; }
+  .po-left-lower { display: none !important; }
+  /* po-stage (image) — rounded bottom, tall enough for the product image */
+  .po-stage { border-radius: 0 0 20px 20px !important; border-top: 1px solid rgba(255,255,255,0.06) !important; min-height: 380px; }
+  .po-stage .product-art { height: 360px !important; width: 100% !important; max-width: 100% !important; }
+  .po-right { display: none !important; }
+  /* gallery strip: glass panel around the scroll row so nothing clips the thumbs */
+  .po-gallery-mobile { display: block !important; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-top: 12px; padding: 10px 12px; }
+  .po-gallery-mobile-thumb { width: 76px !important; height: 76px !important; flex-shrink: 0 !important; }
+  .po-features-mobile { display: block !important; margin-top: 10px; }
+  .po-specs-mobile { display: block !important; margin-top: 10px; }
+  .po-bottom { grid-template-columns: 1fr !important; }
 }
 
 /* ====== MOBILE ≤767px ====== */
@@ -2196,8 +2268,13 @@ section.block.tight { padding: 80px var(--gutter); }
   .header { top: 8px; padding: 0 12px; }
   .logo-img { height: 48px !important; width: auto !important; }
 
+  /* Hero tag + CTA buttons overflow fix */
+  .hero-tag { font-size: 10px !important; letter-spacing: 0.1em !important; max-width: calc(100vw - 64px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hero-ctas { flex-wrap: wrap !important; gap: 10px !important; }
+  .hero-ctas > * { flex: 1 1 130px !important; min-width: 130px !important; justify-content: center !important; }
+
   .hero-meta { display: none; }
-  .hero h1 { font-size: 52px !important; }
+  .hero h1 { font-size: 48px !important; }
 
   /* Celdek banner */
   .celdek-banner { padding: 48px var(--gutter) !important; }
@@ -2211,16 +2288,17 @@ section.block.tight { padding: 80px var(--gutter); }
 
   /* HVLS feature cards: 2 cols instead of 4 */
   .hvls-cards { grid-template-columns: repeat(2, 1fr) !important; }
-}
 
-/* --- Product detail: main image first when stacked --- */
-@media (max-width: 1100px) {
-  .po-stage { order: -1; }
-  .po-bottom { grid-template-columns: 1fr !important; }
-}
-@media (max-width: 767px) {
+  /* Product detail mobile refinements */
+  .po-left { padding: 12px 14px !important; }
+  .po-left .num { font-size: 36px !important; }
+  .po-left h2 { font-size: 20px !important; }
   .po-stage { min-height: 300px; }
+  .po-stage .product-art { height: 280px !important; }
+  .po-gallery-mobile-thumb { width: 68px !important; height: 68px !important; }
   .po-stage .floater { display: none; }
+  .po-stage .corner-meta { font-size: 8px !important; bottom: 12px !important; left: 12px !important; }
+  .po-stage .price-bar { bottom: 12px !important; right: 12px !important; padding: 8px 12px !important; gap: 10px !important; }
   .po-related { grid-template-columns: 1fr 1fr !important; }
 }
 
