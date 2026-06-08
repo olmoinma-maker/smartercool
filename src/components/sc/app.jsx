@@ -524,9 +524,9 @@ function ProductShowcaseFeature({ product, onOpen }) {
                 Abrir ficha completa
                 <span className="arrow"><Icon.ArrowUR size={12} /></span>
               </button>
-              <button className="btn-icon" title="WhatsApp" style={{ width: 48, height: 48, borderRadius: 999, background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.18)", display: "inline-flex", alignItems: "center", justifyContent: "center", color: "var(--white)" }}>
+              <a className="btn-icon" title="WhatsApp" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ width: 48, height: 48, borderRadius: 999, background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.18)", display: "inline-flex", alignItems: "center", justifyContent: "center", color: "var(--white)" }}>
                 <Icon.Whatsapp size={16} />
-              </button>
+              </a>
             </div>
           </div>
 
