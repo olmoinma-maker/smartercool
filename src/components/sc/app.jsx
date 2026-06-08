@@ -86,9 +86,17 @@ function Hero({ onCTA }) {
                 Equipos evaporativos, ventiladores HVLS, extractores industriales y componentes diseñados para elevar el confort, optimizar el flujo de aire y multiplicar la eficiencia en espacios comerciales e industriales exigentes.
               </p>
               <div className="hero-ctas">
-                <button className="btn btn-glass" style={{ background: "var(--sky)", color: "var(--navy)", border: "none" }}>
+                <a
+                  className="btn btn-glass"
+                  href="#catalogo"
+                  style={{ background: "var(--sky)", color: "var(--navy)", border: "none" }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = typeof document !== "undefined" && document.getElementById("catalogo");
+                    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 20, behavior: "smooth" });
+                  }}>
                   Ver catálogo <span className="arrow" style={{ background: "var(--navy)", color: "var(--sky)" }}><Icon.ArrowR size={12} /></span>
-                </button>
+                </a>
                 <a className="btn btn-glass" href={WA_URL} target="_blank" rel="noopener noreferrer">
                   Solicitar cotización <Icon.ArrowUR size={14} />
                 </a>
@@ -816,11 +824,11 @@ function Footer() {
         <div>
           <h4>Catálogo</h4>
           <ul>
-            <li><a href="#">Enfriadores evaporativos</a></li>
-            <li><a href="#">Ventiladores HVLS</a></li>
-            <li><a href="#">Extractores industriales</a></li>
-            <li><a href="#">Cooling pad / Celdek</a></li>
-            <li><a href="#">Descargar ficha global</a></li>
+            <li><a href="#catalogo">Enfriadores evaporativos</a></li>
+            <li><a href="#catalogo">Ventiladores HVLS</a></li>
+            <li><a href="#catalogo">Extractores industriales</a></li>
+            <li><a href="#catalogo">Cooling pad / Celdek</a></li>
+            <li><a href={WA_URL} target="_blank" rel="noopener noreferrer">Solicitar ficha global</a></li>
           </ul>
         </div>
         <div>
