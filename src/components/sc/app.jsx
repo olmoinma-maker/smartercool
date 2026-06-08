@@ -5,6 +5,11 @@ import Installations from "./installations";
 import ProductDetail from "./product-detail";
 import { setupReveal } from "./reveal.js";
 
+export const WA_URL = "https://wa.me/526863360107";
+export const IG_URL = "https://www.instagram.com/smartercoolmx?igsh=M3Jnbmp4bnEyeHcx";
+export const FB_URL = "https://www.facebook.com/share/18mikDUBE4/";
+export const TT_URL = "https://www.tiktok.com/@smartercool2?_r=1&_t=ZS-96xk1sQLE1Z";
+
 
 function Header({ onCTA, active, onNav }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
