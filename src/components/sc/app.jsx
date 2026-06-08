@@ -56,9 +56,9 @@ function Header({ onCTA, active, onNav }) {
         {mobileLink("ventajas", "Ventajas")}
         {mobileLink("contacto", "Contacto")}
       </nav>
-      <button className="btn btn-primary" style={{ width: "100%", justifyContent: "center", marginTop: 24 }} onClick={() => { setMobileOpen(false); onCTA(); }}>
+      <a className="btn btn-primary" style={{ width: "100%", justifyContent: "center", marginTop: 24 }} href={WA_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
         Cotizar <span className="arrow"><Icon.ArrowUR size={12} /></span>
-      </button>
+      </a>
     </div>
     </>);
 
