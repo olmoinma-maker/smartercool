@@ -300,12 +300,12 @@ export default function ProductDetail({ product, onClose, onOpen }) {
               </div>
             </div>
             <div style={{ display: "flex", gap: 10, marginTop: 22, flexWrap: "wrap" }}>
-              <button className="btn" style={{ background: "var(--sky)", color: "var(--navy)" }}>
+              <a className="btn" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ background: "var(--sky)", color: "var(--navy)" }}>
                 <Icon.Whatsapp size={14} /> Hablar por WhatsApp
-              </button>
-              <button className="btn btn-glass">
+              </a>
+              <a className="btn btn-glass" href={WA_URL} target="_blank" rel="noopener noreferrer">
                 Solicitar cotización <span className="arrow"><Icon.ArrowUR size={12} /></span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
