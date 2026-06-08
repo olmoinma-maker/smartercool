@@ -1,6 +1,7 @@
 import React from "react";
 import { Icon, ProductArt } from "./icons";
 import { PRODUCTS } from "./data";
+import { WA_URL } from "./app";
 
 
 export default function ProductDetail({ product, onClose, onOpen }) {
