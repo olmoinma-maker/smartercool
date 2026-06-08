@@ -826,15 +826,14 @@ function Footer() {
         <div>
           <h4>Contacto</h4>
           <ul>
-            <li><br /></li>
-            <li>WhatsApp: +526863360107</li>
-            <li>[Correo: ventas@smartercool.com</li>
-            <li>[ Dirección ]</li>
-            <li>[ Horario ]</li>
+            <li>WhatsApp: <a href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>+52 686 336 0107</a></li>
+            <li>Correo: <a href="mailto:ventas@smartercool.com" style={{ color: "inherit" }}>ventas@smartercool.com</a></li>
+            <li>Dirección: Calle Olga #8, Fracc. Calafia, Mexicali, Baja California, México</li>
+            <li>Horario: Verano 9 a.m. – 6 p.m. · Invierno 9 a.m. – 5 p.m.</li>
           </ul>
-          <button className="btn" style={{ marginTop: 18, background: "var(--sky)", color: "var(--navy)", padding: "12px 18px" }}>
+          <a className="btn" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ marginTop: 18, background: "var(--sky)", color: "var(--navy)", padding: "12px 18px" }}>
             Solicitar cotización <span className="arrow" style={{ background: "var(--navy)", color: "var(--sky)" }}><Icon.ArrowUR size={12} /></span>
-          </button>
+          </a>
         </div>
       </div>
       <div className="footer-bar">
