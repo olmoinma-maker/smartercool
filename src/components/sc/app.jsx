@@ -89,9 +89,9 @@ function Hero({ onCTA }) {
                 <button className="btn btn-glass" style={{ background: "var(--sky)", color: "var(--navy)", border: "none" }}>
                   Ver catálogo <span className="arrow" style={{ background: "var(--navy)", color: "var(--sky)" }}><Icon.ArrowR size={12} /></span>
                 </button>
-                <button className="btn btn-glass" onClick={onCTA}>
+                <a className="btn btn-glass" href={WA_URL} target="_blank" rel="noopener noreferrer">
                   Solicitar cotización <Icon.ArrowUR size={14} />
-                </button>
+                </a>
               </div>
             </div>
             <div style={{ display: "flex", gap: 20, alignItems: "center", marginTop: 22, color: "rgba(255,255,255,0.7)", fontSize: 12, fontFamily: "var(--font-mono)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
