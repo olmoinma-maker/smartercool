@@ -824,11 +824,11 @@ function Footer() {
         <div>
           <h4>Catálogo</h4>
           <ul>
-            <li><a href="#">Enfriadores evaporativos</a></li>
-            <li><a href="#">Ventiladores HVLS</a></li>
-            <li><a href="#">Extractores industriales</a></li>
-            <li><a href="#">Cooling pad / Celdek</a></li>
-            <li><a href="#">Descargar ficha global</a></li>
+            <li><a href="#catalogo">Enfriadores evaporativos</a></li>
+            <li><a href="#catalogo">Ventiladores HVLS</a></li>
+            <li><a href="#catalogo">Extractores industriales</a></li>
+            <li><a href="#catalogo">Cooling pad / Celdek</a></li>
+            <li><a href={WA_URL} target="_blank" rel="noopener noreferrer">Solicitar ficha global</a></li>
           </ul>
         </div>
         <div>
