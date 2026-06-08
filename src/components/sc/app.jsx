@@ -34,12 +34,12 @@ function Header({ onCTA, active, onNav }) {
           {link("contacto", "Contacto")}
         </nav>
         <div className="actions">
-          <button className="btn btn-ghost desktop-only" style={{ padding: "10px 14px" }}>
+          <a className="btn btn-ghost desktop-only" style={{ padding: "10px 14px" }} href={WA_URL} target="_blank" rel="noopener noreferrer">
             <Icon.Whatsapp size={14} /> WhatsApp
-          </button>
-          <button className="btn btn-primary" onClick={onCTA}>
+          </a>
+          <a className="btn btn-primary" href={WA_URL} target="_blank" rel="noopener noreferrer">
             Cotizar <span className="arrow"><Icon.ArrowUR size={12} /></span>
-          </button>
+          </a>
           <button className="nav-hamburger" aria-label="Menú" onClick={() => setMobileOpen(o => !o)}>
             <span /><span /><span />
           </button>
