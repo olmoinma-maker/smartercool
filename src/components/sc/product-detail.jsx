@@ -1,6 +1,7 @@
 import React from "react";
 import { Icon, ProductArt } from "./icons";
 import { PRODUCTS } from "./data";
+import { WA_URL } from "./app";
 
 
 export default function ProductDetail({ product, onClose, onOpen }) {
@@ -114,11 +115,11 @@ export default function ProductDetail({ product, onClose, onOpen }) {
               </div>
 
               <div className="po-cta">
-                <button className="btn btn-primary">
+                <a className="btn btn-primary" href={WA_URL} target="_blank" rel="noopener noreferrer">
                   Solicitar cotización
                   <span className="arrow"><Icon.ArrowUR size={12} /></span>
-                </button>
-                <button className="btn-icon" title="WhatsApp"><Icon.Whatsapp size={16} /></button>
+                </a>
+                <a className="btn-icon" title="WhatsApp" href={WA_URL} target="_blank" rel="noopener noreferrer"><Icon.Whatsapp size={16} /></a>
               </div>
             </div>
           </div>
@@ -244,10 +245,10 @@ export default function ProductDetail({ product, onClose, onOpen }) {
             })}
           </div>
           <div className="po-cta">
-            <button className="btn btn-primary">
+            <a className="btn btn-primary" href={WA_URL} target="_blank" rel="noopener noreferrer">
               Solicitar cotización <span className="arrow"><Icon.ArrowUR size={12} /></span>
-            </button>
-            <button className="btn-icon" title="WhatsApp"><Icon.Whatsapp size={16} /></button>
+            </a>
+            <a className="btn-icon" title="WhatsApp" href={WA_URL} target="_blank" rel="noopener noreferrer"><Icon.Whatsapp size={16} /></a>
           </div>
         </div>
 
@@ -299,12 +300,12 @@ export default function ProductDetail({ product, onClose, onOpen }) {
               </div>
             </div>
             <div style={{ display: "flex", gap: 10, marginTop: 22, flexWrap: "wrap" }}>
-              <button className="btn" style={{ background: "var(--sky)", color: "var(--navy)" }}>
+              <a className="btn" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ background: "var(--sky)", color: "var(--navy)" }}>
                 <Icon.Whatsapp size={14} /> Hablar por WhatsApp
-              </button>
-              <button className="btn btn-glass">
+              </a>
+              <a className="btn btn-glass" href={WA_URL} target="_blank" rel="noopener noreferrer">
                 Solicitar cotización <span className="arrow"><Icon.ArrowUR size={12} /></span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

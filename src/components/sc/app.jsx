@@ -5,6 +5,11 @@ import Installations from "./installations";
 import ProductDetail from "./product-detail";
 import { setupReveal } from "./reveal.js";
 
+export const WA_URL = "https://wa.me/526863360107";
+export const IG_URL = "https://www.instagram.com/smartercoolmx?igsh=M3Jnbmp4bnEyeHcx";
+export const FB_URL = "https://www.facebook.com/share/18mikDUBE4/";
+export const TT_URL = "https://www.tiktok.com/@smartercool2?_r=1&_t=ZS-96xk1sQLE1Z";
+
 
 function Header({ onCTA, active, onNav }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -29,12 +34,12 @@ function Header({ onCTA, active, onNav }) {
           {link("contacto", "Contacto")}
         </nav>
         <div className="actions">
-          <button className="btn btn-ghost desktop-only" style={{ padding: "10px 14px" }}>
+          <a className="btn btn-ghost desktop-only" style={{ padding: "10px 14px" }} href={WA_URL} target="_blank" rel="noopener noreferrer">
             <Icon.Whatsapp size={14} /> WhatsApp
-          </button>
-          <button className="btn btn-primary" onClick={onCTA}>
+          </a>
+          <a className="btn btn-primary" href={WA_URL} target="_blank" rel="noopener noreferrer">
             Cotizar <span className="arrow"><Icon.ArrowUR size={12} /></span>
-          </button>
+          </a>
           <button className="nav-hamburger" aria-label="Menú" onClick={() => setMobileOpen(o => !o)}>
             <span /><span /><span />
           </button>
@@ -51,9 +56,9 @@ function Header({ onCTA, active, onNav }) {
         {mobileLink("ventajas", "Ventajas")}
         {mobileLink("contacto", "Contacto")}
       </nav>
-      <button className="btn btn-primary" style={{ width: "100%", justifyContent: "center", marginTop: 24 }} onClick={() => { setMobileOpen(false); onCTA(); }}>
+      <a className="btn btn-primary" style={{ width: "100%", justifyContent: "center", marginTop: 24 }} href={WA_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
         Cotizar <span className="arrow"><Icon.ArrowUR size={12} /></span>
-      </button>
+      </a>
     </div>
     </>);
 
@@ -84,9 +89,9 @@ function Hero({ onCTA }) {
                 <button className="btn btn-glass" style={{ background: "var(--sky)", color: "var(--navy)", border: "none" }}>
                   Ver catálogo <span className="arrow" style={{ background: "var(--navy)", color: "var(--sky)" }}><Icon.ArrowR size={12} /></span>
                 </button>
-                <button className="btn btn-glass" onClick={onCTA}>
+                <a className="btn btn-glass" href={WA_URL} target="_blank" rel="noopener noreferrer">
                   Solicitar cotización <Icon.ArrowUR size={14} />
-                </button>
+                </a>
               </div>
             </div>
             <div style={{ display: "flex", gap: 20, alignItems: "center", marginTop: 22, color: "rgba(255,255,255,0.7)", fontSize: 12, fontFamily: "var(--font-mono)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
@@ -519,9 +524,9 @@ function ProductShowcaseFeature({ product, onOpen }) {
                 Abrir ficha completa
                 <span className="arrow"><Icon.ArrowUR size={12} /></span>
               </button>
-              <button className="btn-icon" title="WhatsApp" style={{ width: 48, height: 48, borderRadius: 999, background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.18)", display: "inline-flex", alignItems: "center", justifyContent: "center", color: "var(--white)" }}>
+              <a className="btn-icon" title="WhatsApp" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ width: 48, height: 48, borderRadius: 999, background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.18)", display: "inline-flex", alignItems: "center", justifyContent: "center", color: "var(--white)" }}>
                 <Icon.Whatsapp size={16} />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -725,13 +730,13 @@ function CTA() {
           </p>
         </div>
         <div className="cta-actions">
-          <button className="btn" style={{ background: "var(--white)", color: "var(--navy)", justifyContent: "space-between", padding: "18px 22px" }}>
+          <a className="btn" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ background: "var(--white)", color: "var(--navy)", justifyContent: "space-between", padding: "18px 22px" }}>
             Cotizar ahora <span className="arrow" style={{ background: "var(--navy)", color: "var(--white)" }}><Icon.ArrowUR size={12} /></span>
-          </button>
-          <button className="btn btn-glass" style={{ justifyContent: "space-between", padding: "18px 22px" }}>
+          </a>
+          <a className="btn btn-glass" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ justifyContent: "space-between", padding: "18px 22px" }}>
             <span style={{ display: "flex", alignItems: "center", gap: 10 }}><Icon.Whatsapp size={14} /> Hablar por WhatsApp</span>
             <span className="arrow"><Icon.ArrowUR size={12} /></span>
-          </button>
+          </a>
           <button className="btn btn-glass" onClick={() => { const el = document.getElementById("catalogo"); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 20, behavior: "smooth" }); }} style={{ justifyContent: "space-between", padding: "18px 22px" }}>
             Ver catálogo completo <span className="arrow"><Icon.ArrowR size={12} /></span>
           </button>
@@ -761,9 +766,9 @@ function FAQ() {
           <p style={{ marginTop: 24, color: "var(--teal)", fontSize: 15, lineHeight: 1.55, maxWidth: 380 }}>
             ¿Otra duda? Escríbenos directamente, respondemos en menos de 24 h hábiles.
           </p>
-          <button className="btn btn-ghost" style={{ marginTop: 16 }}>
+          <a className="btn btn-ghost" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ marginTop: 16 }}>
             <Icon.Whatsapp size={14} /> Escribir por WhatsApp
-          </button>
+          </a>
         </div>
         <div className="faq-list">
           {items.map((it, i) =>
@@ -792,9 +797,9 @@ function Footer() {
           <div className="ttl">SMARTERCOOL —<br />AIRE QUE <span style={{ WebkitTextStroke: "1.4px var(--white)", color: "transparent", fontStyle: "italic" }}>TRABAJA.</span></div>
           <p>Soluciones de climatización y ventilación industrial para grandes espacios. Asesoría técnica, selección exclusiva, soporte directo.</p>
           <div className="socials">
-            <a href="#" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></a>
-            <a href="#" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22V12h3l1-4h-4V6c0-1.2.4-2 2-2h2V.5C16.6.2 15.3 0 14 0c-2.8 0-5 1.8-5 5v3H6v4h3v10h4Z" /></svg></a>
-            <a href="#" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 2v3.2c1.2 1.4 2.7 2.3 4.5 2.5V11c-1.6-.1-3.1-.6-4.5-1.5v6.6c0 4-3.2 7.2-7.2 7.2S1.6 20.1 1.6 16.1s3.2-7.2 7.2-7.2v3.6c-2 0-3.6 1.6-3.6 3.6s1.6 3.6 3.6 3.6 3.6-1.6 3.6-3.6V2H16Z" /></svg></a>
+            <a href={IG_URL} target="_blank" rel="noopener noreferrer" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></a>
+            <a href={FB_URL} target="_blank" rel="noopener noreferrer" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22V12h3l1-4h-4V6c0-1.2.4-2 2-2h2V.5C16.6.2 15.3 0 14 0c-2.8 0-5 1.8-5 5v3H6v4h3v10h4Z" /></svg></a>
+            <a href={TT_URL} target="_blank" rel="noopener noreferrer" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 2v3.2c1.2 1.4 2.7 2.3 4.5 2.5V11c-1.6-.1-3.1-.6-4.5-1.5v6.6c0 4-3.2 7.2-7.2 7.2S1.6 20.1 1.6 16.1s3.2-7.2 7.2-7.2v3.6c-2 0-3.6 1.6-3.6 3.6s1.6 3.6 3.6 3.6 3.6-1.6 3.6-3.6V2H16Z" /></svg></a>
             <a href="#" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h4v4H4zm0 6h4v10H4zm6 0h4v2c.6-1.2 2-2.4 4-2.4 4 0 4 2.6 4 5.4v5h-4v-4.6c0-1.4-.4-2.6-1.8-2.6S14 15.6 14 17v5h-4z" /></svg></a>
           </div>
         </div>
@@ -821,15 +826,14 @@ function Footer() {
         <div>
           <h4>Contacto</h4>
           <ul>
-            <li>[ Teléfono ]</li>
-            <li>[ WhatsApp ]</li>
-            <li>[ Correo ]</li>
-            <li>[ Dirección ]</li>
-            <li>[ Horario ]</li>
+            <li>WhatsApp: <a href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>+52 686 336 0107</a></li>
+            <li>Correo: <a href="mailto:ventas@smartercool.com" style={{ color: "inherit" }}>ventas@smartercool.com</a></li>
+            <li>Dirección: Calle Olga #8, Fracc. Calafia, Mexicali, Baja California, México</li>
+            <li>Horario: Verano 9 a.m. – 6 p.m. · Invierno 9 a.m. – 5 p.m.</li>
           </ul>
-          <button className="btn" style={{ marginTop: 18, background: "var(--sky)", color: "var(--navy)", padding: "12px 18px" }}>
+          <a className="btn" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ marginTop: 18, background: "var(--sky)", color: "var(--navy)", padding: "12px 18px" }}>
             Solicitar cotización <span className="arrow" style={{ background: "var(--navy)", color: "var(--sky)" }}><Icon.ArrowUR size={12} /></span>
-          </button>
+          </a>
         </div>
       </div>
       <div className="footer-bar">
