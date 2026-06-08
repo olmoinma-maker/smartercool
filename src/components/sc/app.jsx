@@ -858,6 +858,7 @@ function Preloader({ onDone }) {
   }, [displayPct, progress]);
 
   React.useEffect(() => {
+    if (typeof window === 'undefined') return;
     const imgs = [
       '/assets/brand/logo.png',
       '/assets/sobre-la-marca.png',
@@ -867,17 +868,31 @@ function Preloader({ onDone }) {
     ];
     const total = imgs.length + 1;
     let loaded = 0;
+    let done = false;
     const t0 = Date.now();
-    const MIN = 1800;
+    const MIN = 1200;
     const finish = () => {
+      if (done) return; done = true;
       const wait = Math.max(0, MIN - (Date.now() - t0));
       setTimeout(() => { setExiting(true); setTimeout(onDone, 700); }, wait);
     };
-    const tick = () => { loaded++; setProgress(Math.round(loaded / total * 100)); if (loaded >= total) finish(); };
-    imgs.forEach(src => { const img = new Image(); img.onload = img.onerror = tick; img.src = src; });
-    const vid = document.createElement('video'); vid.muted = true; vid.preload = 'auto';
-    vid.oncanplaythrough = vid.onerror = tick; vid.src = '/assets/VHERO.mp4'; vid.load();
-    const fb = setTimeout(() => { setExiting(true); setTimeout(onDone, 700); }, 12000);
+    const tick = () => {
+      loaded++;
+      setProgress(Math.round(loaded / total * 100));
+      if (loaded >= total) finish();
+    };
+    imgs.forEach(src => {
+      const img = new Image();
+      img.onload = img.onerror = tick;
+      img.src = src;
+    });
+    // Fully download the hero video so it plays instantly when revealed
+    fetch('/assets/VHERO.mp4', { cache: 'force-cache' })
+      .then(r => r.blob())
+      .then(() => tick())
+      .catch(() => tick());
+    // Safety fallback in case a resource hangs
+    const fb = setTimeout(finish, 25000);
     return () => clearTimeout(fb);
   }, []);
 
