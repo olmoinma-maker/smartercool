@@ -821,9 +821,9 @@ function Footer() {
         <div>
           <h4>Contacto</h4>
           <ul>
-            <li>[ Teléfono ]</li>
-            <li>[ WhatsApp ]</li>
-            <li>[ Correo ]</li>
+            <li><br /></li>
+            <li>WhatsApp: +526863360107</li>
+            <li>[Correo: ventas@smartercool.com</li>
             <li>[ Dirección ]</li>
             <li>[ Horario ]</li>
           </ul>
