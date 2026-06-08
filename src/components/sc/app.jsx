@@ -766,9 +766,9 @@ function FAQ() {
           <p style={{ marginTop: 24, color: "var(--teal)", fontSize: 15, lineHeight: 1.55, maxWidth: 380 }}>
             ¿Otra duda? Escríbenos directamente, respondemos en menos de 24 h hábiles.
           </p>
-          <button className="btn btn-ghost" style={{ marginTop: 16 }}>
+          <a className="btn btn-ghost" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ marginTop: 16 }}>
             <Icon.Whatsapp size={14} /> Escribir por WhatsApp
-          </button>
+          </a>
         </div>
         <div className="faq-list">
           {items.map((it, i) =>
