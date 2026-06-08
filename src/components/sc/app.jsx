@@ -730,13 +730,13 @@ function CTA() {
           </p>
         </div>
         <div className="cta-actions">
-          <button className="btn" style={{ background: "var(--white)", color: "var(--navy)", justifyContent: "space-between", padding: "18px 22px" }}>
+          <a className="btn" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ background: "var(--white)", color: "var(--navy)", justifyContent: "space-between", padding: "18px 22px" }}>
             Cotizar ahora <span className="arrow" style={{ background: "var(--navy)", color: "var(--white)" }}><Icon.ArrowUR size={12} /></span>
-          </button>
-          <button className="btn btn-glass" style={{ justifyContent: "space-between", padding: "18px 22px" }}>
+          </a>
+          <a className="btn btn-glass" href={WA_URL} target="_blank" rel="noopener noreferrer" style={{ justifyContent: "space-between", padding: "18px 22px" }}>
             <span style={{ display: "flex", alignItems: "center", gap: 10 }}><Icon.Whatsapp size={14} /> Hablar por WhatsApp</span>
             <span className="arrow"><Icon.ArrowUR size={12} /></span>
-          </button>
+          </a>
           <button className="btn btn-glass" onClick={() => { const el = document.getElementById("catalogo"); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 20, behavior: "smooth" }); }} style={{ justifyContent: "space-between", padding: "18px 22px" }}>
             Ver catálogo completo <span className="arrow"><Icon.ArrowR size={12} /></span>
           </button>
