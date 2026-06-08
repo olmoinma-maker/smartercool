@@ -800,7 +800,7 @@ function Footer() {
             <a href={IG_URL} target="_blank" rel="noopener noreferrer" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></a>
             <a href={FB_URL} target="_blank" rel="noopener noreferrer" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22V12h3l1-4h-4V6c0-1.2.4-2 2-2h2V.5C16.6.2 15.3 0 14 0c-2.8 0-5 1.8-5 5v3H6v4h3v10h4Z" /></svg></a>
             <a href={TT_URL} target="_blank" rel="noopener noreferrer" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 2v3.2c1.2 1.4 2.7 2.3 4.5 2.5V11c-1.6-.1-3.1-.6-4.5-1.5v6.6c0 4-3.2 7.2-7.2 7.2S1.6 20.1 1.6 16.1s3.2-7.2 7.2-7.2v3.6c-2 0-3.6 1.6-3.6 3.6s1.6 3.6 3.6 3.6 3.6-1.6 3.6-3.6V2H16Z" /></svg></a>
-            <a href="#" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h4v4H4zm0 6h4v10H4zm6 0h4v2c.6-1.2 2-2.4 4-2.4 4 0 4 2.6 4 5.4v5h-4v-4.6c0-1.4-.4-2.6-1.8-2.6S14 15.6 14 17v5h-4z" /></svg></a>
+            
           </div>
         </div>
         <div>
