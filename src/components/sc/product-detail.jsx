@@ -245,10 +245,10 @@ export default function ProductDetail({ product, onClose, onOpen }) {
             })}
           </div>
           <div className="po-cta">
-            <button className="btn btn-primary">
+            <a className="btn btn-primary" href={WA_URL} target="_blank" rel="noopener noreferrer">
               Solicitar cotización <span className="arrow"><Icon.ArrowUR size={12} /></span>
-            </button>
-            <button className="btn-icon" title="WhatsApp"><Icon.Whatsapp size={16} /></button>
+            </a>
+            <a className="btn-icon" title="WhatsApp" href={WA_URL} target="_blank" rel="noopener noreferrer"><Icon.Whatsapp size={16} /></a>
           </div>
         </div>
 
