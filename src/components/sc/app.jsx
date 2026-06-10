@@ -844,9 +844,14 @@ function Footer() {
           </a>
         </div>
       </div>
-      <div className="footer-bar">
+      <div className="footer-bar" style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center", alignItems: "center", rowGap: 8 }}>
         <span>© 2026 SMARTERCOOL — Climatización inteligente</span>
-        <span>V.01 · CATÁLOGO · 2026</span>
+        <span style={{ display: "inline-flex", gap: 12, flexWrap: "wrap" }}>
+          <a href="/aviso-legal" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "3px" }}>Aviso legal</a>
+          <a href="/politica-privacidad" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "3px" }}>Privacidad</a>
+          <a href="/politica-cookies" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "3px" }}>Cookies</a>
+          <a href="/terminos-condiciones" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "3px" }}>Términos</a>
+        </span>
         <span>DISEÑO Y DESARROLLO WEB POR <a href="https://zkmarketing.es" target="_blank" rel="noopener noreferrer" style={{color:"inherit", textDecoration:"underline", textUnderlineOffset:"3px"}}>ZK MARKETING</a></span>
       </div>
     </footer>);
