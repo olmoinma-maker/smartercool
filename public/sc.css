@@ -1089,7 +1089,7 @@ section.block.tight { padding: 80px var(--gutter); }
 }
 .product-bg .stars {
   position: absolute; inset: 0;
-  background-image: url("https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=2000&q=80");
+  background-image: url("/assets/showcase/bg-texture.jpg");
   background-size: cover; background-position: center;
   opacity: 0.18; mix-blend-mode: screen; filter: blur(2px);
 }
