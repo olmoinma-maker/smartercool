@@ -82,8 +82,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Smarter Cool | Climatización industrial" },
       { name: "twitter:description", content: "Equipos evaporativos, ventiladores HVLS y extractores para climatizar grandes espacios comerciales e industriales." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/ciJNZt0NQwSx1SdFWDTBtbbBY623/social-images/social-1779470508599-IMAGEN_OG.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/ciJNZt0NQwSx1SdFWDTBtbbBY623/social-images/social-1779470508599-IMAGEN_OG.webp" },
+      { property: "og:image", content: "https://smartercool.com/assets/brand/og.webp" },
+      { name: "twitter:image", content: "https://smartercool.com/assets/brand/og.webp" },
     ],
     links: [
       {
