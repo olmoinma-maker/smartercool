@@ -503,7 +503,7 @@ function ProductShowcaseFeature({ product, onOpen }) {
   const Art = ProductArt[product.art];
   return (
     <section className="block" style={{ background: "linear-gradient(180deg, var(--navy) 0%, var(--teal) 100%)", color: "var(--white)", position: "relative", overflow: "hidden" }}>
-      <div style={{ position: "absolute", inset: 0, opacity: 0.2, backgroundImage: "url(https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=2000&q=80)", backgroundSize: "cover", backgroundPosition: "center", filter: "saturate(0.6) blur(2px)" }} />
+      <div style={{ position: "absolute", inset: 0, opacity: 0.2, backgroundImage: "url(/assets/showcase/bg-texture.jpg)", backgroundSize: "cover", backgroundPosition: "center", filter: "saturate(0.6) blur(2px)" }} />
       <div style={{ position: "relative" }}>
         <div className="section-head" style={{ marginBottom: 40 }}>
           <div>
